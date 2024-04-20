@@ -64,11 +64,14 @@
     <Compile Include="Assets\Scripts\Tree.cs" />
     <Compile Include="Assets\Scripts\StateMachineExemple\EnemyPatrolling.cs" />
     <Compile Include="Assets\Scripts\StateMachineExemple\EnemyIdle.cs" />
+    <Compile Include="Assets\Scripts\Button.cs" />
     <Compile Include="Assets\Water Float\Demo\Standard Assets\Environment\Water\Water\Scripts\WaterTile.cs" />
+    <Compile Include="Assets\Scripts\Games.cs" />
     <Compile Include="Assets\Water Float\Demo\Standard Assets\Environment\Water\Water\Scripts\SpecularLighting.cs" />
     <Compile Include="Assets\Water Float\Demo\Standard Assets\Environment\Water\Water\Scripts\WaterBase.cs" />
     <Compile Include="Assets\Scripts\StateMachineExemple\EnemyDown.cs" />
     <Compile Include="Assets\Water Float\Demo\Standard Assets\Environment\Water\Water\Scripts\PlanarReflection.cs" />
+    <Compile Include="Assets\Scripts\SaveClass.cs" />
     <Compile Include="Assets\Scripts\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\PlayerState.cs" />
     <Compile Include="Assets\Water Float\Demo\Standard Assets\Environment\Water\Water\Scripts\MeshContainer.cs" />
@@ -76,8 +79,11 @@
     <Compile Include="Assets\Scripts\StateMachineExemple\EnemyState.cs" />
     <Compile Include="Assets\Scripts\PlayerBehaviour.cs" />
     <Compile Include="Assets\Scripts\StateMachineExemple\ShapeExample.cs" />
+    <Compile Include="Assets\Scripts\Fishing.cs" />
     <Compile Include="Assets\Water Float\Demo\Standard Assets\Environment\Water\Water\Scripts\Water.cs" />
+    <Compile Include="Assets\Scripts\SaveSystem.cs" />
     <Compile Include="Assets\Water Float\Demo\Standard Assets\Environment\Water\Water\Scripts\GerstnerDisplace.cs" />
+    <Compile Include="Assets\Scripts\ScriptablePlayerData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\SD Unity-Chan Haon Custom\Shader\Unity-chan Toon Shader Ver 2.0.6\Toon_DoubleShadeWithFeather_Mobile_TransClipping_StencilMask.shader" />
@@ -875,11 +881,11 @@
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VSCode.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
       <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VSCode.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
