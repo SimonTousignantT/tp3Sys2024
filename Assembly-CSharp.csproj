@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Assets\Water Float\Core\WaterFloat.cs" />
     <Compile Include="Assets\Scripts\StateMachineExemple\EnemyBehaviour.cs" />
+    <Compile Include="Assets\Scripts\EventManager.cs" />
     <Compile Include="Assets\Scripts\CutWood.cs" />
     <Compile Include="Assets\Scripts\Tree.cs" />
     <Compile Include="Assets\Scripts\StateMachineExemple\EnemyPatrolling.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="Assets\Scripts\MyButton.cs" />
     <Compile Include="Assets\Water Float\Demo\Standard Assets\Environment\Water\Water\Scripts\WaterTile.cs" />
     <Compile Include="Assets\Scripts\Games.cs" />
+    <Compile Include="Assets\Scripts\InvetoryUi.cs" />
     <Compile Include="Assets\Water Float\Demo\Standard Assets\Environment\Water\Water\Scripts\SpecularLighting.cs" />
     <Compile Include="Assets\Water Float\Demo\Standard Assets\Environment\Water\Water\Scripts\WaterBase.cs" />
     <Compile Include="Assets\Scripts\StateMachineExemple\EnemyDown.cs" />
@@ -82,6 +84,7 @@
     <Compile Include="Assets\Water Float\Demo\Standard Assets\Environment\Water\Water\Scripts\Water.cs" />
     <Compile Include="Assets\Scripts\SaveSystem.cs" />
     <Compile Include="Assets\Prefab\NewBehaviourScript.cs" />
+    <Compile Include="Assets\Scripts\AudioPool.cs" />
     <Compile Include="Assets\Water Float\Demo\Standard Assets\Environment\Water\Water\Scripts\GerstnerDisplace.cs" />
     <Compile Include="Assets\Scripts\ScriptablePlayerData.cs" />
   </ItemGroup>

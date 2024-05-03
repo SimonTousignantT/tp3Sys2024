@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,6 +34,10 @@ public class Games : MonoBehaviour
     private float m_fichingDificulty = 0.05f;
     [SerializeField]
     private int m_inventorySize = 5;
+    [SerializeField]
+    private List<AudioClip> m_audioList = new List<AudioClip>();
+    public event System.Action GetFish;
+    public event System.Action GetWood;
     private void Start()
     {
         for (int i = 0; i < m_dataSave.loaddata().Item1; i++)
@@ -85,6 +90,7 @@ public class Games : MonoBehaviour
                 Debug.Log("tu a apuyer sur D");
                 m_cutGameUI.transform.GetChild(0).gameObject.SetActive(false);
                 m_cutGameUI.transform.GetChild(Random.Range(0, m_cutGameUI.transform.childCount)).gameObject.SetActive(true);
+                gameObject.GetComponent<AudioPool>().PlayMusicPool(m_audioList[0]);
                 return woodPoint += 1;
             }
             if(Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.W))
@@ -106,6 +112,7 @@ public class Games : MonoBehaviour
                 Debug.Log("tu a apuyer sur A");
                 m_cutGameUI.transform.GetChild(1).gameObject.SetActive(false);
                 m_cutGameUI.transform.GetChild(Random.Range(0, m_cutGameUI.transform.childCount)).gameObject.SetActive(true);
+                gameObject.GetComponent<AudioPool>().PlayMusicPool(m_audioList[0]);
                 return woodPoint += 1;
             }
             if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.W))
@@ -127,6 +134,7 @@ public class Games : MonoBehaviour
                 Debug.Log("tu a apuyer sur D");
                 m_cutGameUI.transform.GetChild(2).gameObject.SetActive(false);
                 m_cutGameUI.transform.GetChild(Random.Range(0, m_cutGameUI.transform.childCount)).gameObject.SetActive(true);
+                gameObject.GetComponent<AudioPool>().PlayMusicPool(m_audioList[0]);
                 return woodPoint += 1;
             }
             if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
@@ -148,6 +156,7 @@ public class Games : MonoBehaviour
                 Debug.Log("tu a apuyer sur D");
                 m_cutGameUI.transform.GetChild(3).gameObject.SetActive(false);
                 m_cutGameUI.transform.GetChild(Random.Range(0, m_cutGameUI.transform.childCount)).gameObject.SetActive(true);
+                gameObject.GetComponent<AudioPool>().PlayMusicPool(m_audioList[0]);
                 return woodPoint += 1;
                 
             }
@@ -162,8 +171,7 @@ public class Games : MonoBehaviour
             if (m_inventoryPanel.transform.childCount < m_inventorySize)
             {
                 Destroy(m_emptyItem);
-                m_newObject = Instantiate(m_prefabInventoryWood);
-                m_newObject.transform.parent = m_inventoryPanel.transform;
+                GetWood?.Invoke();
                 m_woodInInvetory += 1;
                 m_dataSave.saveData(m_woodInInvetory, m_FishInInvetory);
             }
@@ -187,6 +195,7 @@ public class Games : MonoBehaviour
     public void FishingButton()
     {
         m_WaterGamePoint.GetComponent<Image>().fillAmount += m_fichingDificulty;
+        gameObject.GetComponent<AudioPool>().PlayMusicPool(m_audioList[1]);
     }
     public int WaterGame()
     {
@@ -206,13 +215,26 @@ public class Games : MonoBehaviour
         if (m_WaterGamePoint.GetComponent<Image>().fillAmount >= 1)
         {
             //Debug.Log("gagné! WaterGame" +  m_inventoryPanel.transform.childCount);
-
+            gameObject.GetComponent<AudioPool>().PlayMusicPool(m_audioList[2]);
             if (m_inventoryPanel.transform.childCount < m_inventorySize)
             {
+
                 //Debug.Log("sa crée un nouveux poisson dans l'inventaire" );
                 Destroy(m_emptyItem);
-                m_newObject = Instantiate(m_prefabInventoryFish);
-                m_newObject.transform.parent = m_inventoryPanel.transform;
+
+                /////////yes mon event systeme fonctione! 
+                GetFish?.Invoke();
+                /////////////////////////////////////////////////////////
+
+
+                //////////////////////////////////////////////////////////////////////////////n'a jamais fonctioné
+                //Debug.Log("active l'event");
+                //Dictionary<string, object> eventParams = new Dictionary<string, object>();
+                //eventParams.Add("itemList", m_FishInInvetory);
+                //EventManager.GetInstance().TriggerEvent(EEvents.On_Item_Added_To_Inventory, eventParams);
+                //Debug.Log("l'event a marcher");/// sa jamais fonctioné 
+                ///////////////////////////////////////////////////////////////////////////////
+
                 m_FishInInvetory += 1;
             }
             m_dataSave.saveData(m_woodInInvetory, m_FishInInvetory);
